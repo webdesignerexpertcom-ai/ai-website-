@@ -31,16 +31,12 @@ try:
 except Exception as e:
     print(f"Space creation note: {e}")
 
-# Upload files
-files_to_upload = ["app.py", "requirements.txt", "README.md", ".gitignore", "Dockerfile", "api.py"]
-for f in files_to_upload:
-    if os.path.exists(f):
-        api.upload_file(
-            path_or_fileobj=f,
-            path_in_repo=f,
-            repo_id=repo_id,
-            repo_type="space"
-        )
-        print(f"Uploaded: {f}")
+# Upload the entire folder
+api.upload_folder(
+    folder_path=".",
+    repo_id=repo_id,
+    repo_type="space",
+    ignore_patterns=[".git*", ".streamlit*", "__pycache__*", "*.pyc", "deploy_hf.py"]
+)
 
 print("Done! Visit: https://huggingface.co/spaces/" + repo_id)
