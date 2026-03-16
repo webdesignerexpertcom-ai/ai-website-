@@ -2,9 +2,8 @@
 title: AI Website Generator
 emoji: ⚡
 colorFrom: indigo
-colorTo: slate
-sdk: streamlit
-sdk_version: 1.31.0
+colorTo: purple
+sdk: docker
 app_file: app.py
 pinned: false
 ---
